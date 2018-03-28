@@ -23,7 +23,7 @@ public class StudentDbUtil {
 			Statement myStmt = myConn.createStatement();) {
 		
 			//create sql statement
-			String sql= "select * from student order last_name";
+			String sql= "select * from student order by last_name";
 			
 			//execute query
 			ResultSet myRst = myStmt.executeQuery(sql);
