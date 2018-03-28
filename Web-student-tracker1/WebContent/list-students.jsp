@@ -1,16 +1,12 @@
-<%@ page import="java.util.*, com.luv.com.web.jdbc.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Student Tracker App</title>
+	<link type="text/css" rel="styLesheet" href="css/style.css">
 </head>
-<%
-	//get the student from the request object (sent by servlet)
-	List<Student> theStudents = (List<Student>) request.getAttribute("STUDENT_LIST");
 
-
-%>
 <body>
 	<div id="wrapper">
 		<div id="header">
@@ -26,13 +22,12 @@
 					<th>Last Name</th>
 					<th>Email Name</th>
 				</tr>
-				<% for(Student tempStudent : theStudents){ %>
+				<c:forEach var="tempStudent" items="${STUDENT_LIST}">
 					<tr>
-						<td><%= tempStudent.getFirstName()%></td>
-						<td><%= tempStudent.getLastName()%></td>
-						<td><%= tempStudent.getE_mail() %></td>
-					</tr>
-				<% } %>			
+						<td> ${tempStudent.firstName}</td>
+						<td> ${tempStudent.lastName}</td>
+						<td> ${tempStudent.e_mail}</td>
+				</c:forEach>			
 			</table>
 		</div>
 	</div>
